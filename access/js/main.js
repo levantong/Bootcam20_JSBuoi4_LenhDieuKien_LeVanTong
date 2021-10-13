@@ -5,124 +5,150 @@ const NumberFormat = new Intl.NumberFormat('en-US', {
     currency: 'VND',
     minimumFractionDigits: 0
 })
-        /** BÀI 1 - TÍNH TIỀN LƯƠNG NHÂN VIÊN
- * > Khối 1: Người dùng nhập vào
- * salary: lương 1 ngày
- * workday: ngày công
- * > Khối 2: 
- * B1: lấy giá trị nhập vào
- * B2: tính lương total = salary * workday
- * B3: xuất ra màn hình
- * > Khối 3:
- * Tính tổng lương
- */
-function DoPayroll() {
-    var workday = document.getElementById("workDay").value; //lấy giá trị ngày 
-    var salary = document.getElementById("salary").value; //lấy giá trị lương 
-    var total = workday * salary; //tính lương gán vào total
-    document.getElementById("result1").style.display = "block"; //hiện kết quả
-    document.getElementById("result1").innerHTML = "Tổng lương nhận được là: "+NumberFormat.format(total) 
-    
-}
-document.getElementById("btnCalc1").onclick = DoPayroll; // gán lệnh DoPayroll vào nút
+    /**BÀI 1 - SẮP XẾP SỐ*/
 
-        /** BÀI 2 - TÍNH TRUNG BÌNH CỘNG 5 SỐ 
- * > Khối 1: 
- * Người dùng nhập vào 5 số 
- * num1, num2, num3, num4, num5
- * > Khối 2: 
- * B1: lấy giá trị nhập vào
- * B2: chuyển sang kiểu số
- * B3: tính tb cộng: (num1+num2+num3+num4+num5) / 5
- * B4: xuất ra màn hình
- * > Khối 3:
- * Tính trung bình cộng average
- */
-function DoAverage() {
-    var num1 = document.getElementById("num1").value; 
-    var num2 = document.getElementById("num2").value; 
-    var num3 = document.getElementById("num3").value; 
-    var num4 = document.getElementById("num4").value; 
-    var num5 = document.getElementById("num5").value; 
-    var average = (Number(num1)+Number(num2)+Number(num3)+Number(num4)+Number(num5)) / 5
-    document.getElementById("result2").style.display = "block"; //hiện kết quả
-    document.getElementById("result2").innerHTML = "Trung bình cộng 5 số là: "+average //xuất ra màn hình
-}
-document.getElementById("btnCalc2").onclick = DoAverage; // gán lệnh DoAverage vào nút
+function DoSort() {
+    //lấy giá trị 3 số nhập vào, ép về kiểu số
+    var num1 = Number(document.getElementById("num1").value) ; 
+    var num2 = Number(document.getElementById("num2").value); 
+    var num3 = Number(document.getElementById("num3").value); 
+    //Khai báo biến tạm để gán thứ tự các số
+    var no1 = 0; //số lớn nhất 
+    var no2 = 0; //số lớn nhì 
+    var no3 = 0; //nhỏ nhất 
+    if(num1==num2 || num2==num3 ||num1==num3){ //Kiểm tra điều kiện 3 số khác nhau
+        alert("Vui lòng nhập vào 3 số khác nhau!")  // thông báo lỗi
+    } else
+    if(num1>num2 && num2>num3){
+        var no1 = num1; //số lớn nhất 
+        var no2 = num2; //số lớn nhì 
+        var no3 = num3; //nhỏ nhất 
+    } else
+    if(num1>num3 && num3>num2){
+        var no1 = num1; //số lớn nhất 
+        var no2 = num3; //số lớn nhì 
+        var no3 = num2; //nhỏ nhất 
+    } else
+    if(num2>num1 && num1>num3){
+        var no1 = num2; //số lớn nhất 
+        var no2 = num1; //số lớn nhì 
+        var no3 = num3; //nhỏ nhất 
+    } else
+    if(num2>num3 && num3>num1){
+        var no1 = num2; //số lớn nhất 
+        var no2 = num3; //số lớn nhì 
+        var no3 = num1; //nhỏ nhất 
+    } else
+    if(num3>num1 && num1>num2){
+        var no1 = num3; //số lớn nhất 
+        var no2 = num1; //số lớn nhì 
+        var no3 = num2; //nhỏ nhất 
+    } else{
+        var no1 = num3; //số lớn nhất 
+        var no2 = num2; //số lớn nhì 
+        var no3 = num1; //nhỏ nhất 
+    }
 
-        /** BÀI 3 - QUY ĐỔI TIỀN
- * > Khối 1: 
- * Người dùng nhập vào 
- * usd
- * > Khối 2: 
- * B1: lấy giá trị nhập vào
- * B2: tính tiền việt: usd*exchangeRate
- * B3: xuất ra màn hình
- * > Khối 3:
- * Quy đổi ra tiền việt: vnd
- */
-function DoExchange() {
-    var usd = document.getElementById("usd").value; //lấy giá trị usd
-    var exchangeRate = document.getElementById("exchangeRate").value; //lấy tỉ giá
-    var vnd = exchangeRate * usd; //quy ra VNĐ
+    document.getElementById("result1").style.display = "block";  //hiện kết quả
+    document.getElementById("result1").innerHTML = "Thứ tự tăng dần là: " + no3 +" < "+ no2  +" < "+ no1
+
+} //ngoặc đóng function
+
+document.getElementById("btnCalc1").onclick = DoSort; // gán lệnh DoSort vào nút
+
+        /**BÀI 2 - Chương trình "Chào hỏi"*/
+
+function DoGreeting() {
+    var userKey = document.getElementById("user").value;  //lấy giá trị nhập vào
+    var user = ""; //tạo biến để gán tên xưng hô vào
+    if (userKey == 0){
+        alert("Xin chọn 1 user!") //báo lỗi khi người dùng không chọn mà nhấn Đăng nhập
+    } else{
+    switch (userKey) {
+        case "B":
+            user = "Bố";
+            break;
+        case "M":
+            user = "Mẹ"
+            break;
+        case "A":
+            user = "Anh trai"
+            break;
+        case "E":
+            user = "Em gái"
+            break;
+            
+        }
+    console.log(userKey)
+    document.getElementById("result2").style.display = "block"; //hiện block chứa kết quả
+    document.getElementById("result2").innerHTML = "Xin chào "+user+", chúc một ngày tốt lành!" //xuất ra màn hình
+    }
+} //ngoặc đóng function
+ 
+document.getElementById("btnCalc2").onclick = DoGreeting; // gán lệnh DoGreeting vào nút
+
+    /**BÀI 3 - ĐẾM SỐ CHẴN, LẺ */
+
+function DoCount() {
+    //lấy giá trị 3 số nhập vào, ép về kiểu số
+    var num1 = Number(document.getElementById("B3_num1").value);
+    var num2 = Number(document.getElementById("B3_num2").value);
+    var num3 = Number(document.getElementById("B3_num3").value);
+
+    var countEven = 0; //Khai báo biến đếm số chẵn
+    //Xét 3 số nhập vào xem có phải là số chẵn không
+    if(num1 % 2 == 0){
+        countEven++
+    }
+    if(num2 % 2 == 0){
+        countEven++
+    }
+    if(num3 % 2 == 0){
+        countEven++
+    }
+    var countOdd = 3-countEven; //tính số lẻ 
+
     document.getElementById("result3").style.display = "block"; //hiện kết quả
-    document.getElementById("result3").innerHTML = "Số tiền tương ứng là: "+NumberFormat.format(vnd) 
+    document.getElementById("result3").innerHTML = "Có "+countEven+" số chẵn và "+countOdd+" số lẻ"
 }
-document.getElementById("btnCalc3").onclick = DoExchange; // gán lệnh DoExchange vào nút
+document.getElementById("btnCalc3").onclick = DoCount; // gán lệnh DoCount vào nút
 
-        /** BÀI 4 - TÍNH CHU VI, DIỆN TÍCH <br>HÌNH CHỮ NHẬT
- * > Khối 1: Người dùng nhập vào 
- * lenght - chiều dài
- * width - chiều rộng
- * unit - đơn vị đo
- * > Khối 2: 
- * B1: tạo biến lấy giá trị nhập vào
- * B2: tính chu vi: perimeter = (Number(lenght)+Number(width))*2
- * B3: tính diện tích: area = lenght*width
- * B4: xuất ra màn hình
- * > Khối 3:
- * chu vi: perimeter
- * diện tích: area
- */
-function CalcArea() {
-    var lenght = document.getElementById("lenght").value; //lấy chiều dài
-    var width = document.getElementById("width").value; //lấy chiều rộng
-    var unit = document.getElementById("unit").value; //lấy đơn vị đo
-    var perimeter = (Number(lenght)+Number(width))*2; //ép kiểu số + tính chu vi
-    var area = lenght*width;
-    document.getElementById("perimeter").style.display = "block"; //hiện kết quả
-    document.getElementById("area").style.display = "block"; //hiện kết quả
-    document.getElementById("perimeter").innerHTML = "Chu vi là: "+perimeter+unit;
-    document.getElementById("area").innerHTML = "Diện tich là: "+area+unit+('<span style="vertical-align: super; font-size: xx-small;">2</span>');
-}
-document.getElementById("btnCalc4").onclick = CalcArea; // gán lệnh CalcArea vào nút
+    /**BÀI 4 - XÉT TAM GIÁC */
 
-        /**BÀI 5 - TÍNH TỔNG 2 KÝ SỐ
- * > Khối 1: Người dùng nhập vào 
- * Num: số 
- * > Khối 2: 
- * B1: tạo biến lấy giá trị số nhập vào
- * B2: kiểm tra điều kiện đúng 2 chữ số không: lenght(number) = 2, đúng thực hiện bước B3, B4, sai thực hiện B5
- * B3: tạo biến gán công thức tính 2 ký số:
- *      tensDigit = Num / 10
- *      unitDigit = Num % 10
- * B4: Tính tổng: sum2digit = tensDigit + unitDigit => xuất ra màn hình
- * B5: nếu sai xuất cảnh báo: alert("Vui lòng nhập số có 2 chữ số")
- * > Khối 3:
- * Tổng 2 ký số
- */
-function DoSum2Digit() {
-    var Num = document.getElementById("number").value; //lấy số
-    if (Num.length==2){ //kiểm tra điều kiện số nhập vào
-        var tensDigit = Math.floor(Num/10); //chia 10 lấy hàng chục
-        var unitDigit = Num % 10; //chia 10 dư lấy hàng đơn vị
-        var sum2digit = tensDigit + unitDigit;
-        document.getElementById("result5").style.display = "block"; //hiện kết quả
-        document.getElementById("result5").innerHTML = "Tổng 2 ký số của số trên là: "+tensDigit+" + "+unitDigit+" = "+sum2digit;
+function typeOf_Triangle() {
+    //khai báo biến lấy số đo 3 cạnh nhập vào, ép về kiểu số
+    var edg1 = Number(document.getElementById("edge1").value);
+    var edg2 = Number(document.getElementById("edge2").value);
+    var edg3 = Number(document.getElementById("edge3").value);
+    var type = ""; //khai báo biến kiểu tam giác
+    var mark = ""; //khai báo biến mô tả dấu hiệu nhận diện
+    if (edg1 != edg2 && edg1 != edg3 && edg3 != edg2 ){ //xét xem 3 cạnh có khác nhau không
+        if(edg1*edg1 + edg2*edg2== edg3*edg3 || edg1*edg1 + edg3*edg3== edg2*edg2 || edg3*edg3 + edg2*edg2== edg1*edg1 ){ //xét tiếp nó phải tam giác vuông không
+            type = "vuông"; //nếu đúng khác nhau là tam giác thường
+        mark = "3 cạnh không bằng nhau và tổng bình phương 2 cạnh nhỏ bằng đúng bình phương cạnh lớn.";
+        } else{
+            type = "thường"; //nếu đúng khác nhau là tam giác thường
+            mark = "3 cạnh không bằng nhau.";
+        }
+
+
+        //nếu sai chắc chắn là tam giác cân hoặc vuông, khoan kết luận xét tiếp xem nó phải tam giác vuông nay đều
+    } else if(edg1 == edg2 && edg1 == edg3 && edg3 == edg2 ){ //xét xem phải tam giác đều không
+        type = "đều"; //nếu đúng là tam giác đều
+        mark = "3 cạnh bằng nhau.";
+
+        //nếu sai xét tiếp nó là tam giác cân hay vuông cân
+    } else if(edg1*edg1 + edg2*edg2== edg3*edg3 || edg1*edg1 + edg3*edg3== edg2*edg2 || edg3*edg3 + edg2*edg2== edg1*edg1 ){
+        type = "vuông cân"; //nếu đúng là tam giác vuông cân
+        mark = "2 cạnh bằng nhau và tổng bình phương 2 cạnh nhỏ bằng đúng bình phương cạnh lớn.";
+    } else{
+        type = "cân"; //còn lại thì là tam giác cân
+        mark = "2 cạnh bằng nhau.";
     }
-    else{
-        alert("Vui lòng nhập số có 2 chữ số")
-    }
+
+    document.getElementById("result4").style.display = "block"; //hiện kết quả
+    document.getElementById("result4").innerHTML = "Tam giác này là tam giác "+type+" do có "+mark
 }
-document.getElementById("btnCalc5").onclick = DoSum2Digit; // gán lệnh CalcArea vào nút
+document.getElementById("btnCalc4").onclick = typeOf_Triangle; // gán lệnh typeOf_Triangle vào nút
+
 
