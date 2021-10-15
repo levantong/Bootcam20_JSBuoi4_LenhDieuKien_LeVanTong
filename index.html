@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài tập Javascript</title>
+    <title>Javascript - Lệnh điều kiện</title>
     <link rel="icon" href="./access/img/javascript.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -28,6 +28,10 @@
                             aria-selected="false">Bài 3</a>
                         <a class="nav-link" id="Exe4-tab" data-toggle="pill" href="#Exe4" role="tab" aria-controls="Exe4"
                             aria-selected="false">Bài 4</a>
+                        <a class="nav-link" id="Exe5-tab" data-toggle="pill" href="#Exe5" role="tab" aria-controls="Exe5"
+                            aria-selected="false">Bài 5 (Nâng cao)</a>
+                        <a class="nav-link" id="Exe6-tab" data-toggle="pill" href="#Exe6" role="tab" aria-controls="Exe6"
+                            aria-selected="false">Bài 6 (Nâng cao)</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -115,10 +119,63 @@
                                 (Chỗ hiển thị kết quả)
                             </div>
                         </div>
+
+                        <!-- BÀI 5 - TÍNH NGÀY THÁNG NĂM -->
+                        <div class="tab-pane fade show" id="Exe5" role="tabpanel" aria-labelledby="Exe5-tab">
+                            <h4>BÀI 5 - TÍNH NGÀY THÁNG NĂM</h4>
+                            <p>Nhập vào 1 ngày, tìm ngày trước và sau ngày đó</p>
+                            <form class="">
+                                <div class="form-group">
+
+                                    <!-- dùng kiểu bằng date để hỗ trợ khách nhập đúng định dạng -->
+                                    <label for="dayInput">Xin nhập vào một ngày bên dưới:</label>
+                                    <input type="date" class="form-control w-75" id="dayInput">
+                                </div>
+                                <button type="button" class="btn btn-primary mr-2" id="btnCalc5_1">Tìm ngày trước đó</button>
+                                <button type="button" class="btn btn-primary" id="btnCalc5_2">Tìm ngày sau đó</button>
+                            </form>
+                            <div id="result5" class="alert alert-success mt-3" role="alert">
+                                (Chỗ hiển thị kết quả)
+                            </div>
+                        </div>
+
+                        <!-- BÀI 6 - TÌM SỐ NGÀY CỦA THÁNG -->
+                        <div class="tab-pane fade show" id="Exe6" role="tabpanel" aria-labelledby="Exe6-tab">
+                            <h4>BÀI 6 - TÌM SỐ NGÀY CỦA THÁNG</h4>
+                            <p>Nhập vào 1 tháng và năm cụ thể, tìm số ngày của tháng đó</p>
+                            <div class="form-group">
+                                <input type="number" class="form-control w-50" id="month" placeholder="Nhập tháng:">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control w-50" id="year" placeholder="Nhập năm:">
+                            </div>
+                                <button type="button" class="btn btn-primary" id="btnCalc6">Tìm số ngày của tháng</button>
+                            </form>
+                            <div id="result6" class="alert alert-success mt-3" role="alert">
+                                (Chỗ hiển thị kết quả)
+                            </div>
+                        </div>
+
+                        <!-- BÀI 7 - ĐỌC SỐ -->
+                        <div class="tab-pane fade show" id="Exe6" role="tabpanel" aria-labelledby="Exe6-tab">
+                            <h4>BÀI 7 - ĐỌC SỐ</h4>
+                            <p>Nhập vào số nguyên có ba chữ số, in ra cách đọc số đó</p>
+                            <div class="form-group">
+                                <input type="number" class="form-control w-50" id="month" placeholder="Nhập tháng:">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control w-50" id="year" placeholder="Nhập năm:">
+                            </div>
+                                <button type="button" class="btn btn-primary" id="btnCalc6">Tìm số ngày của tháng</button>
+                            </form>
+                            <div id="result6" class="alert alert-success mt-3" role="alert">
+                                (Chỗ hiển thị kết quả)
+                            </div>
+                        </div>
                         <!-- hết nội dung các bài -->
 
                     </div>
-                    <!-- thẻ đóng tab-content -->
+                    <!-- ^ thẻ đóng tab-content -->
                 </div>
             </div>
         </div>
