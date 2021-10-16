@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="./access/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="cover shadow-lg h-75 w-75">
+    <div class="container-lg">
+        <div class="cover shadow-lg w-75">
             <div class="row ">
                 <div class="col-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -32,6 +32,10 @@
                             aria-selected="false">Bài 5 (Nâng cao)</a>
                         <a class="nav-link" id="Exe6-tab" data-toggle="pill" href="#Exe6" role="tab" aria-controls="Exe6"
                             aria-selected="false">Bài 6 (Nâng cao)</a>
+                        <a class="nav-link" id="Exe7-tab" data-toggle="pill" href="#Exe7" role="tab" aria-controls="Exe7"
+                            aria-selected="false">Bài 7 (Nâng cao)</a>
+                        <a class="nav-link" id="Exe8-tab" data-toggle="pill" href="#Exe8" role="tab" aria-controls="Exe8"
+                            aria-selected="false">Bài 8 (Nâng cao)</a>
                     </div>
                 </div>
                 <div class="col-9">
@@ -84,13 +88,13 @@
                             <p>Nhập vào 3 số nguyên, đếm xem có bao nhiêu số chẵn, bao nhiêu số lẻ</p>
                             <form class="">
                                 <div class="form-group">
-                                    <input type="number" class="form-control w-50" id="B3_num1" placeholder="Nhập số thứ 1:">
+                                    <input type="number" class="form-control w-50" id="B3_num1" required placeholder="Nhập số thứ 1:">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control w-50" id="B3_num2" placeholder="Nhập số thứ 2:">
+                                    <input type="number" class="form-control w-50" id="B3_num2" required placeholder="Nhập số thứ 2:">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control w-50" id="B3_num3" placeholder="Nhập số thứ 3:">
+                                    <input type="number" class="form-control w-50" id="B3_num3" required placeholder="Nhập số thứ 3:">
                                 </div>
                                 <button type="button" class="btn btn-primary" id="btnCalc3">Đếm</button>
                             </form>
@@ -157,35 +161,100 @@
                         </div>
 
                         <!-- BÀI 7 - ĐỌC SỐ -->
-                        <div class="tab-pane fade show" id="Exe6" role="tabpanel" aria-labelledby="Exe6-tab">
+                        <div class="tab-pane fade show" id="Exe7" role="tabpanel" aria-labelledby="Exe7-tab">
                             <h4>BÀI 7 - ĐỌC SỐ</h4>
                             <p>Nhập vào số nguyên có ba chữ số, in ra cách đọc số đó</p>
                             <div class="form-group">
-                                <input type="number" class="form-control w-50" id="month" placeholder="Nhập tháng:">
+                                <input type="number" class="form-control w-50" id="NumberLesson7" placeholder="Nhập số nguyên có 3 chữ số:">
                             </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control w-50" id="year" placeholder="Nhập năm:">
-                            </div>
-                                <button type="button" class="btn btn-primary" id="btnCalc6">Tìm số ngày của tháng</button>
+                                <button type="button" class="btn btn-primary" id="btnCalc7">In cách đọc</button>
                             </form>
-                            <div id="result6" class="alert alert-success mt-3" role="alert">
+                            <div id="result7" class="alert alert-success mt-3" role="alert">
+                                (Chỗ hiển thị kết quả)
+                            </div>
+                        </div>
+
+                        <!-- BÀI 8 - TÌM SINH VIÊN XA NHẤT -->
+                        <div class="tab-pane fade" id="Exe8" role="tabpanel" aria-labelledby="Exe8-tab">
+                            <h4>BÀI 8 - TÌM SINH VIÊN XA NHẤT</h4>
+                            <p>Nhập vào tên và tọa độ nhà của 3 sinh viên, biết tọa độ của trường, tìm sinh viên có nhà xa trường nhất</p>
+                            <p><i>(Số liệu nhập sẵn để test nhanh, bạn có thể thay đổi)</i></p>
+
+
+                            <!-- dùng class: coor- để chỉ coordinates: tọa độ -->
+                            <div class="toado_truong row">
+                                <div class="col-4">
+                                    <span style="line-height: 70px;font-weight: bold;">Tọa độ trường:</span>
+                                </div>
+                                <div class="col-4">
+                                    <label for="vi_doTruong">Vĩ độ</label>
+                                    <input type="number" class="form-control" id="vi_doTruong" value="10.8578645">
+                                </div>
+                                <div class="col-4">
+                                    <label for="kinh_doTruong">Kinh độ</label>
+                                    <input type="number" class="form-control" id="kinh_doTruong" value="106.7635064">
+                                </div>
+                            </div>
+                            <div class="sinh_vien1 row">
+                                <div class="col-4">
+                                    <label for="name1">Tên sinh viên 1:</label>
+                                    <input type="text" class="form-control" id="name1" value="Sinh viên 1">
+                                </div>
+                                <div class="col-4">
+                                    <label for="vi_do1">Vĩ độ:</label>
+                                    <input type="number" class="form-control" id="vi_do1" value="10.94578645">
+                                </div>
+                                <div class="col-4">
+                                    <label for="kinh_do1">Kinh độ:</label>
+                                    <input type="number" class="form-control" id="kinh_do1" value="106.79445064">
+                                </div>
+                            </div>
+                            <div class="sinh_vien2 row">
+                                <div class="col-4">
+                                    <label for="name2">Tên sinh viên 2:</label>
+                                    <input type="text" class="form-control" id="name2" value="Sinh viên 2">
+                                </div>
+                                <div class="col-4">
+                                    <label for="vi_do2">Vĩ độ:</label>
+                                    <input type="number" class="form-control" id="vi_do2" value="10.85435445">
+                                </div>
+                                <div class="col-4">
+                                    <label for="kinh_do2">Kinh độ:</label>
+                                    <input type="number" class="form-control" id="kinh_do2" value="106.816565064">
+                                </div>
+                            </div>
+                            <div class="sinh_vien3 row">
+                                <div class="col-4">
+                                    <label for="name3">Tên sinh viên 3:</label>
+                                    <input type="text" class="form-control" id="name3" value="Sinh viên 3">
+                                </div>
+                                <div class="col-4">
+                                    <label for="vi_do3">Vĩ độ:</label>
+                                    <input type="number" class="form-control" id="vi_do3" value="10.8956655">
+                                </div>
+                                <div class="col-4">
+                                    <label for="kinh_do3">Kinh độ:</label>
+                                    <input type="number" class="form-control" id="kinh_do3" value="106.7394">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary mt-2" id="btnCalc8">Tìm sinh viên xa nhất:</button>
+                            <div id="result8" class="alert alert-success mt-3" role="alert">
                                 (Chỗ hiển thị kết quả)
                             </div>
                         </div>
                         <!-- hết nội dung các bài -->
+                        
 
                     </div>
-                    <!-- ^ thẻ đóng tab-content -->
+                    <!-- ^ thẻ đóng  class= tab-content -->
                 </div>
+                <!-- ^ thẻ đóng class="col-8" -->
             </div>
         </div>
     </div>
-    
-    
 
 
-
-
+    <!-- Js chính -->
 
     <script src="./access/js/main.js"></script>
     <!-- Bootstrap JavaScript bundle -->
